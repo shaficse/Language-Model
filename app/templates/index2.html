@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Generation</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+            width: 500px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        label {
+            color: #333;
+            font-weight: bold;
+        }
+
+        input[type="text"], .slider {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .slider {
+            -webkit-appearance: none;
+            appearance: none;
+            background: #ddd;
+            outline: none;
+            opacity: 0.7;
+            -webkit-transition: .2s;
+            transition: opacity .2s;
+        }
+
+        .slider:hover {
+            opacity: 1;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            background-color: #5cb85c;
+            color: white;
+            padding: 14px 20px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #4cae4c;
+        }
+
+        .loader {
+            border: 16px solid #f3f3f3; /* Light grey */
+            border-top: 16px solid #3498db; /* Blue */
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 2s linear infinite;
+            display: none; /* Hidden by default */
+            margin: 20px auto;
+        }
+
+        #generated-text {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+            margin-top: 20px;
+            min-height: 50px;
+            white-space: pre-wrap; /* respects new lines and spaces */
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Text Generation with LM</h2>
+        <form id="text-gen-form">
+            <label for="prompt">Enter a prompt:</label><br>
+            <input type="text" id="prompt" name="prompt" placeholder="Start typing..."><br>
+
+            <label for="max_seq_len">Max Sequence Length: <span id="max_seq_len_value">30</span></label><br>
+            <input type="range" min="30" max="300" value="30" class="slider" id="max_seq_len" name="max_seq_len" oninput="document.getElementById('max_seq_len_value').innerHTML = this.value"><br>
+
+            <label for="temperature">Temperature: <span id="temperature_value(Lower->Stable, higher->More creative)">1.0</span></label><br>
+            <input type="range" min="0.5" max="1.0" value="0.6" step="0.1" class="slider" id="temperature" name="temperature" oninput="document.getElementById('temperature_value').innerHTML = this.value"><br><br>
+
+            <input type="submit" value="Generate">
+        </form>
+        <!-- Loader -->
+        <div class="loader" id="loader"></div>
+        <h3>Generated Text:</h3>
+        <p id="generated-text"></p>
+    </div>
+    <script>
+        document.getElementById('text-gen-form').onsubmit = async function(event) {
+            event.preventDefault();
+            let loader = document.getElementById('loader');
+            let generatedText = document.getElementById('generated-text');
+            let prompt = document.getElementById('prompt').value.trim();
+            let max_seq_len = document.getElementById('max_seq_len').value;
+            let temperature = document.getElementById('temperature').value;
+    
+            // Validate the prompt field to ensure it's not empty
+            if (!prompt) {
+                alert('Please enter a prompt to generate text.');
+                return; // Stop the function if the prompt is empty
+            }
+    
+            // Show the loader and hide the generated text
+            loader.style.display = 'block';
+            generatedText.style.display = 'none';
+    
+            let response = await fetch('/generate', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({prompt: prompt, max_seq_len: max_seq_len, temperature: temperature}),
+            });
+    
+            let data = await response.json();
+    
+            // Hide the loader and show the generated text
+            loader.style.display = 'none';
+            generatedText.style.display = 'block';
+            generatedText.innerText = data.generated_text;
+        }
+    </script>
+    
+    <!-- <script>
+        document.getElementById('text-gen-form').onsubmit = async function(event) {
+            event.preventDefault();
+            let loader = document.getElementById('loader');
+            let generatedText = document.getElementById('generated-text');
+            let prompt = document.getElementById('prompt').value;
+            let max_seq_len = document.getElementById('max_seq_len').value;
+            let temperature = document.getElementById('temperature').value;
+
+            // Show the loader and hide the generated text
+            loader.style.display = 'block';
+            generatedText.style.display = 'none';
+
+            let response = await fetch('/generate', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({prompt: prompt, max_seq_len: max_seq_len, temperature: temperature}),
+            });
+
+            let data = await response.json();
+
+            // Hide the loader and show the generated text
+            loader.style.display = 'none';
+            generatedText.style.display = 'block';
+            generatedText.innerText = data.generated_text;
+        }
+    </script> -->
+</body>
+</html>
