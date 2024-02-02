@@ -118,7 +118,7 @@ This analysis and the subsequent recommendations aim to guide further developmen
 This task focuses on deploying the trained LSTM language model as an interactive web application using Flask. The application allows users to input custom prompts and generate text based on those prompts, showcasing the model's text generation capabilities in a user-friendly format.
 
 ### Web Application Features
-- **Interactive Interface**: Users can input a prompt and adjust parameters such as maximum sequence length and temperature for text generation.
+- **Interactive Interface**: Users can input a prompt and adjust parameters such as **maximum sequence length** and **temperature** for text generation.
 - **Real-time Text Generation**: The model generates text in real-time, providing immediate feedback based on the user's input.
 - **Parameter Tuning**: Users can experiment with different temperatures to influence the creativity and coherence of the generated text.
 
