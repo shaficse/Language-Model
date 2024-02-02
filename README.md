@@ -92,7 +92,7 @@ To get started with the LSTM language model project, follow these steps to set u
 This report provides an analysis of the LSTM language model's training performance over 50 epochs, focusing primarily on minimizing Train and Valid Perplexity, and offering an evaluation based on Test Perplexity.
 
 #### Results
-- **Total Training Time:** 48 minutes and 12 seconds(On T4 GPU Linux Machine with 16GB of GPU memory ).
+- **Total Training Time:** 48 minutes and 12 seconds(On T4 GPU Linux Machine with 16GB memory ).
 - **Optimal Epoch:** 30
   - **Train Perplexity:** 45.028
   - **Valid Perplexity:** 88.476
