@@ -139,7 +139,7 @@ This task focuses on deploying the trained LSTM language model as an interactive
 
    <img src="figures/a2-app-2.png">
 
-   ***For Live Demo from Huggingface Space [https://huggingface.co/spaces/shaficse/a2-text-gen](https://huggingface.co/spaces/shaficse/a2-text-gen)***
+   ***For Live Demo from Huggingface Space [https://huggingface.co/spaces/shaficse/a2-text-gen](https://huggingface.co/spaces/shaficse/a2-text-gen)*** 
 3. **Interact with the Application**:
    - Access the web application through the provided URL.
    - Input your prompt and adjust generation parameters as desired.
