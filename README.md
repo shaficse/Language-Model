@@ -110,6 +110,8 @@ The model demonstrated consistent improvement throughout the training epochs, wi
 This analysis and the subsequent recommendations aim to guide further development and optimization of the LSTM language model, promoting advancements in performance and applicability.
 
 
+***If anyone wants to use our trained model, please download from here [https://drive.google.com/file/d/1DhDYEpJT4EpHx7bfmuezCMCGKV--kgmx/view?usp=sharing](https://drive.google.com/file/d/1DhDYEpJT4EpHx7bfmuezCMCGKV--kgmx/view?usp=sharing)
+& rest of the configuration files are inside the app/models directory***
 
 ## Task 3: Text Generation - Web Application Development
 
