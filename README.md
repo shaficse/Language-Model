@@ -1,4 +1,4 @@
-# LSTM Language Models README
+# A2: Text Generation with LM
 
 ## Table of Contents
 - [Overview](#overview)
