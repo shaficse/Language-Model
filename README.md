@@ -15,7 +15,7 @@
 
 
 ## Overview
-This project focuses on developing and analyzing LSTM language models. It encompasses the training of models on the Harry Potter Books Dataset, comparing various model architectures, and deploying a Flask-based web application for interactive text generation.
+This project focuses on developing and analyzing LSTM language models. It encompasses the training of models on the Harry Potter Books Dataset and deploying a Flask-based web application for interactive text generation.
 
 ## Task 1: Preparation and Training
 This task involves setting up the project, preparing the data, and training the LSTM language model.
@@ -92,7 +92,7 @@ To get started with the LSTM language model project, follow these steps to set u
 This report provides an analysis of the LSTM language model's training performance over 50 epochs, focusing primarily on minimizing Train and Valid Perplexity, and offering an evaluation based on Test Perplexity.
 
 #### Results
-- **Total Training Time:** 48 minutes and 12 seconds.
+- **Total Training Time:** 48 minutes and 12 seconds(On T4 GPU Linux Machine with 16GB of GPU memory ).
 - **Optimal Epoch:** 30
   - **Train Perplexity:** 45.028
   - **Valid Perplexity:** 88.476
