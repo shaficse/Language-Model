@@ -99,7 +99,7 @@ This report provides an analysis of the LSTM language model's training performan
   - **Test Perplexity:** 106.331
 
 #### Analysis
-The model demonstrated consistent improvement throughout the training epochs, with Epoch 30 yielding the most balanced performance. The Test Perplexity, while higher than the Validation Perplexity, remains within a reasonable range, suggesting good generalization of the model to unseen data. However, the noticeable gap between Test and Validation Perplexity indicates potential areas for further model refinement.
+The model demonstrated consistent improvement throughout the training epochs, with Epoch 30 yielding the most balanced performance. The Test Perplexity, while higher than the Validation Perplexity, remains within a reasonable range, suggesting good generalization of the model to unseen data. `However, the noticeable gap between Test and Validation Perplexity indicates potential areas for further model refinement.`
 
 #### Recommendations for Further Improvement
 1. **Early Stopping:** Implement an early stopping mechanism to halt training when the Validation Perplexity no longer shows significant improvement. This approach can prevent overfitting and reduce unnecessary computational overhead.
@@ -136,7 +136,7 @@ This task focuses on deploying the trained LSTM language model as an interactive
    <img src="figures/a2-app-1.png">
 
    <img src="figures/a2-app-2.png">
-      
+
    ***For Live Demo from Huggingface Space [https://huggingface.co/spaces/shaficse/a2-text-gen](https://huggingface.co/spaces/shaficse/a2-text-gen)***
 3. **Interact with the Application**:
    - Access the web application through the provided URL.
