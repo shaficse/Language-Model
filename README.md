@@ -1,4 +1,4 @@
-# A2: Text Generation with LM
+# A2: Language Model
 
 ## Table of Contents
 - [Overview](#overview)
