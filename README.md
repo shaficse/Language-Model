@@ -1,4 +1,4 @@
-# A2: Language Model
+# Language Model
 
 ## Table of Contents
 - [Overview](#overview)
